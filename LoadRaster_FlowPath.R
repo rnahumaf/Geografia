@@ -1,4 +1,5 @@
 library(raster)
+# Load GeoTIFF
 DSM_HARV <- raster("/home/rodrigo/Downloads/s24_w048_1arc_v3.tif")
 plot(DSM_HARV)
 
