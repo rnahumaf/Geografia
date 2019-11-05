@@ -1,3 +1,11 @@
+library(raster)
+DSM_HARV <- raster("/home/rodrigo/Downloads/s24_w048_1arc_v3.tif")
+
+# PUC Sorocaba
+
+colFromX(DSM_HARV, -47.4590986)
+rowFromY(DSM_HARV, -23.5097768)
+
 # Fill basins from coordinates Lat Long or X Y
 # Meters above point = 1
 
@@ -43,7 +51,9 @@ while(Filled_basin == F){
     xlong <- queue[pick_dir,2]
     
     # Excluir direção escolhida da queue (e todas as suas eventuais réplicas)
-    linhas_queue <- which(apply(queue, 1, function(x) identical(as.vector(x), c(ylat[[1]], xlong[[1]]))))
+    a <- which(queue[,1]==ylat)
+    b <- which(queue[,2]==xlong)
+    linhas_queue <- intersect(a,b)
     queue <- queue[-linhas_queue,]
   }
 }
@@ -79,4 +89,3 @@ values(Rep_m) <- m_layer
 plot(DSM_HARV, xlim = c(-47.6,-47.3), ylim = c(-23.65, -23.35))
 # coco <- colorRampPalette(c("snow1", "steelblue"), 4); colors()
 plot(Rep_m, xlim = c(-47.6,-47.3), ylim = c(-23.65, -23.35), add=T, legend=F, col=coco(10))
-
