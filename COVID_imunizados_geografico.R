@@ -4,7 +4,7 @@ library("covid19br") #de Set 2020 em diante
 library(ggplot2)
 library(ggpubr)
 
-Estado <- "SP"
+Estado <- "RS"
 
 SP <- geobr::read_municipality(Estado)
 
@@ -24,8 +24,10 @@ for(i in unique(SP$name_muni)){
 p1 <- ggplot(SP) +
   geom_sf() +
   geom_sf(data = SP[SP$imune >0,], aes(fill = imune)) +
-  scale_fill_viridis_b(breaks = c(0.1,0.2,0.3,0.4,0.5,0.6,0.7), 
-                       labels = c("10%", "20%", "30%", "40%", "50%", "60%", "70%"), name = "Estimativa de\npopulação imunizada\n(calculado pelos óbitos)")+
+  scale_fill_gradient2(breaks = c(0.1,0.2,0.3,0.4,0.5,0.6,0.7), 
+                       labels = c("10%", "20%", "30%", "40%", "50%", "60%", "70%"), 
+                       low = "blue", mid = "yellow", high = "red", midpoint = 0.35, limits = c(0,0.7),
+                       name = "População imunizada\n(estimado pelos óbitos)")+
   theme_classic()
 
-ggexport(p1, filename = "imune_SP.png", res = 300, width = 3000, height = 3000)
+ggexport(p1, filename = "imune_RS.png", res = 300, width = 3000, height = 3000)
