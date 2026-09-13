@@ -1,0 +1,29 @@
+{
+  "name": "itupararanga-flood-lab",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rnahumaf/Geografia.git"
+  },
+  "type": "module",
+  "scripts": {
+    "prepare:data": ".venv\\Scripts\\python.exe scripts\\prepare_data.py",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run && npm run test:data",
+    "test:data": ".venv\\Scripts\\python.exe -m unittest discover -s scripts -p \"test_*.py\""
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "4.2.1",
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.21",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vitest": "^4.1.11"
+  }
+}

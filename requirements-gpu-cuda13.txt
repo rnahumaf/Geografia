@@ -1,0 +1,2 @@
+# A máquina de desenvolvimento usa CUDA 13.1.
+cupy-cuda13x==14.2.0
