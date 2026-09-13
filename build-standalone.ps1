@@ -3,7 +3,7 @@ $ProjectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location -LiteralPath $ProjectRoot
 
 npm run build
-& ".venv\Scripts\python.exe" -m pip install -r requirements-app.txt pyinstaller==6.15.0
+& ".venv\Scripts\python.exe" -m pip install -r requirements-app.txt -r requirements-gpu-cuda13.txt pyinstaller==6.15.0
 & ".venv\Scripts\python.exe" -m PyInstaller `
   --noconfirm `
   --clean `

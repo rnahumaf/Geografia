@@ -13,6 +13,8 @@ npm install
 npm run prepare:data
 ```
 
+A instalação padrão executa o solver em CPU. Para desenvolver ou testar o caminho CUDA 13.x, instale também `requirements-gpu-cuda13.txt`.
+
 Inicie o backend e o frontend em terminais separados:
 
 ```powershell

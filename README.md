@@ -37,6 +37,14 @@ npm run prepare:data
 npm run dev
 ```
 
+Para habilitar CUDA 13.x, instale também a dependência opcional:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-gpu-cuda13.txt
+```
+
+Sem essa dependência ou sem uma GPU compatível, o solver usa NumPy/CPU.
+
 Acesse `http://127.0.0.1:4173`. Em desenvolvimento, mantenha também o backend local aberto:
 
 ```powershell
